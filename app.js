@@ -3,8 +3,7 @@ var express = require('express')
   , bodyParser = require('body-parser')
   , path  = require( "path" )
   , app = express()
-  , server = require('http').Server(app)
-  , io = require('socket.io')(server);
+  , io = require('socket.io');
 
 
 io.configure(function(){
@@ -33,9 +32,12 @@ load('models')
   .then('routes')
   .into(app);
 
+var server = http.createServer(app);
+io = socketio.listen(server, {log:false, origins:'*:*'});
+
 load('sockets')
         .into( io );
 
-server.listen(app.get('port'), function () {
+app.listen(app.get('port'), function () {
   console.log("Rodando na porta "+app.get('port'));
 });
