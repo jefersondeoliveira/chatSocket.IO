@@ -1,26 +1,27 @@
 0 info it worked if it ends with ok
 1 verbose cli [ 'c:\\Program Files\\nodejs\\node.exe',
 1 verbose cli   'c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
-1 verbose cli   'start' ]
+1 verbose cli   'run',
+1 verbose cli   'test-w' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.38
-4 verbose run-script [ 'prestart', 'start', 'poststart' ]
-5 info prestart chatSocketIo@1.0.0
-6 info start chatSocketIo@1.0.0
+4 verbose run-script [ 'pretest-w', 'test-w', 'posttest-w' ]
+5 info pretest-w chatSocketIo@1.0.0
+6 info test-w chatSocketIo@1.0.0
 7 verbose unsafe-perm in lifecycle true
-8 info chatSocketIo@1.0.0 Failed to exec start script
-9 error chatSocketIo@1.0.0 start: `forever --watchIgnore '*.ejs' --watchIgnore 'public/**/*.js' --watchIgnore '.git/**' -w app.js`
+8 info chatSocketIo@1.0.0 Failed to exec test-w script
+9 error chatSocketIo@1.0.0 test-w: `istanbul.cmd cover ./node_modules/jasmine-node/bin/jasmine-node --captureExceptions test`
 9 error Exit status 1
-10 error Failed at the chatSocketIo@1.0.0 start script.
+10 error Failed at the chatSocketIo@1.0.0 test-w script.
 10 error This is most likely a problem with the chatSocketIo package,
 10 error not with npm itself.
 10 error Tell the author that this fails on your system:
-10 error     forever --watchIgnore '*.ejs' --watchIgnore 'public/**/*.js' --watchIgnore '.git/**' -w app.js
+10 error     istanbul.cmd cover ./node_modules/jasmine-node/bin/jasmine-node --captureExceptions test
 10 error You can get their info via:
 10 error     npm owner ls chatSocketIo
 10 error There is likely additional logging output above.
 11 error System Windows_NT 6.2.9200
-12 error command "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
+12 error command "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "test-w"
 13 error cwd f:\Workspace\chatSocket
 14 error node -v v0.10.38
 15 error npm -v 1.4.28

@@ -29,7 +29,7 @@
   <script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
   <script src="http://wchatt.herokuapp.com/socket.io/socket.io.js"></script>
   <script>
-  var socket = io('http://wchatt.herokuapp.com');
+  var socket = io('http://localhost:3000');
   socket.on('send-client', function (msg) {
   	document.getElementById('chat').innerHTML += msg;
   });
