@@ -1,0 +1,26 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'stop' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 verbose run-script [ 'prestop', 'stop', 'poststop' ]
+5 info prestop chatSocketIo@1.0.0
+6 info stop chatSocketIo@1.0.0
+7 verbose unsafe-perm in lifecycle true
+8 info chatSocketIo@1.0.0 Failed to exec stop script
+9 error chatSocketIo@1.0.0 stop: `forever stop 0`
+9 error Exit status 1
+10 error Failed at the chatSocketIo@1.0.0 stop script.
+10 error This is most likely a problem with the chatSocketIo package,
+10 error not with npm itself.
+10 error Tell the author that this fails on your system:
+10 error     forever stop 0
+10 error You can get their info via:
+10 error     npm owner ls chatSocketIo
+10 error There is likely additional logging output above.
+11 error System Linux 3.13.0-61-generic
+12 error command "/usr/local/bin/node" "/usr/local/bin/npm" "stop"
+13 error cwd /home/jeferson/Workspace/chatSocket.IO
+14 error node -v v0.10.35
+15 error npm -v 1.4.28
+16 error code ELIFECYCLE
+17 verbose exit [ 1, true ]
