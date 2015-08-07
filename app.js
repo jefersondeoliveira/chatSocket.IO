@@ -4,7 +4,8 @@ var express = require('express')
   , path  = require( "path" )
   , app = express()
   , server = require('http').Server(app)
-  , io = require('socket.io')(server);
+  , io = require('socket.io')(server, {log:false, origins:'*:*'});
+
 
 io.configure(function(){
 	io.set("transports", ["xhr-polling"]);
@@ -18,6 +19,14 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use( "/public", express.static( path.join( __dirname, "public" ) ) );
+
+app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
+        res.header("Access-Control-Allow-Headers", "Content-Type");
+        res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
+        next();
+    });
 
 load('models')
   .then('controllers')
