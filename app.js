@@ -4,7 +4,7 @@ var express = require('express')
   , path  = require( "path" )
   , app = express()
   , server = require('http').Server(app)
-  , io = require('socket.io')(server, {log:false, origins:'*:*'});
+  , io = require('socket.io')(server);
 
 
 io.configure(function(){
