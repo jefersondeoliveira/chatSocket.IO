@@ -3,13 +3,8 @@ var express = require('express')
   , bodyParser = require('body-parser')
   , path  = require( "path" )
   , app = express()
-  , io = require('socket.io');
+  , socketio = require('socket.io');
 
-
-io.configure(function(){
-	io.set("transports", ["xhr-polling"]);
-	io.set("polling duration", 10);
-});  
 
 app.set('port', (process.env.PORT || 3000));
 
@@ -34,6 +29,10 @@ load('models')
 
 var server = http.createServer(app);
 io = socketio.listen(server, {log:false, origins:'*:*'});
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
 
 load('sockets')
         .into( io );
