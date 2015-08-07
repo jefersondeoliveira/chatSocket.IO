@@ -6,6 +6,11 @@ var express = require('express')
   , server = require('http').Server(app)
   , io = require('socket.io')(server);
 
+io.configure(function(){
+	io.set("transports", ["xhr-polling"]);
+	io.set("polling duration", 10);
+});  
+
 app.set('port', (process.env.PORT || 3000));
 
 app.set('views', __dirname + '/views');
@@ -18,7 +23,7 @@ load('models')
   .then('controllers')
   .then('routes')
   .into(app);
-  
+
 load('sockets')
         .into( io );
 
