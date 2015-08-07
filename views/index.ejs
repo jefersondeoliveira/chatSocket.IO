@@ -29,7 +29,7 @@
   <script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script>
-  var socket = io.connect(window.location.hostname);
+  var socket = io.connect(window.location.href);
   socket.on('send-client', function (msg) {
   	document.getElementById('chat').innerHTML += msg;
   });

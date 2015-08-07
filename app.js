@@ -2,15 +2,11 @@ var express = require('express')
   , load = require('express-load')
   , bodyParser = require('body-parser')
   , path  = require( "path" )
-  , app = express.createServer(express.logger())
-  , io = require('socket.io').listen(app);
+  , app = express()
+  , server = require('http').Server(app)
+  , io = require('socket.io')(server);
 
 app.set('port', (process.env.PORT || 3000));
-
-io.configure(function () {  
-  io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
-});
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -26,6 +22,6 @@ load('models')
 load('sockets')
         .into( io );
 
-app.listen(app.get('port'), function () {
+server.listen(app.get('port'), function () {
   console.log("Rodando na porta "+app.get('port'));
 });
